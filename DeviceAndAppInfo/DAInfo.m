@@ -15,6 +15,7 @@ NSString *deviceAndAppInfo()
     NSString *devicesPlistPath = [[NSBundle mainBundle] pathForResource:@"devices" ofType:@"plist"];
     NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSDictionary *iOSDevices = [NSDictionary dictionaryWithContentsOfFile:devicesPlistPath];
+    NSString* deviceModel = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
     NSString* deviceModelKey = [iOSDevices valueForKey:deviceModel];
     if (deviceModelKey == nil){
         deviceModelKey = deviceModel;
