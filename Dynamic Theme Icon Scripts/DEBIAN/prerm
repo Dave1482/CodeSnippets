@@ -1,28 +1,32 @@
 #!/bin/bash
+
+themeName="YourTheme"
+
 echo "Cleaning Up..."
-altStoreSave="/Library/Themes/YourTheme.theme/Saved Locations/AltStore.txt"
-unc0verSave="/Library/Themes/YourTheme.theme/Saved Locations/Unc0ver.txt"
-deltaFullSave="/Library/Themes/YourTheme.theme/Saved Locations/Delta.txt"
-deltaLiteSave="/Library/Themes/YourTheme.theme/Saved Locations/DeltaLite.txt"
+
+altStoreSave="/Library/Themes/$themeName.theme/Saved Locations/AltStore.txt"
+unc0verSave="/Library/Themes/$themeName.theme/Saved Locations/Unc0ver.txt"
+deltaFullSave="/Library/Themes/$themeName.theme/Saved Locations/Delta.txt"
+deltaLiteSave="/Library/Themes/$themeName.theme/Saved Locations/DeltaLite.txt"
 
 if test -f "$altStoreSave"; then
     altInfo=$(cat "$altStoreSave")
-	mv -f "/Library/Themes/YourTheme.theme/IconBundles/$altInfo-large.png" "/Library/Themes/YourTheme.theme/IconBundles/toBeRenamed.com.rileytestut.AltStore-large.png"
+	mv -f "/Library/Themes/$themeName.theme/IconBundles/$altInfo-large.png" "/Library/Themes/$themeName.theme/IconBundles/toBeRenamed.com.rileytestut.AltStore-large.png"
 	rm -f "$altStoreSave"
 fi
 if test -f "$unc0verSave"; then
     unc0verInfo=$(cat "$unc0verSave")
-	mv -f "/Library/Themes/YourTheme.theme/IconBundles/$unc0verInfo-large.png" "/Library/Themes/YourTheme.theme/IconBundles/toBeRenamed.science.xnu.undecimus-large.png"
+	mv -f "/Library/Themes/$themeName.theme/IconBundles/$unc0verInfo-large.png" "/Library/Themes/$themeName.theme/IconBundles/toBeRenamed.science.xnu.undecimus-large.png"
 	rm -f "$unc0verSave"
 fi
 if test -f "$deltaFullSave"; then
     deltaFullInfo=$(cat "$deltaFullSave")
-	mv -f "/Library/Themes/YourTheme.theme/IconBundles/$deltaFullInfo-large.png" "/Library/Themes/YourTheme.theme/IconBundles/toBeRenamed.com.rileytestut.Delta-large.png"
+	mv -f "/Library/Themes/$themeName.theme/IconBundles/$deltaFullInfo-large.png" "/Library/Themes/$themeName.theme/IconBundles/toBeRenamed.com.rileytestut.Delta-large.png"
 	rm -f "$deltaFullSave"
 fi
 if test -f "$unc0verSave"; then
     deltaLiteInfo=$(cat "$deltaLiteSave")
-	mv -f "/Library/Themes/YourTheme.theme/IconBundles/$deltaLiteInfo-large.png" "/Library/Themes/YourTheme.theme/IconBundles/toBeRenamed.com.rileytestut.Delta.Lite-large.png"
+	mv -f "/Library/Themes/$themeName.theme/IconBundles/$deltaLiteInfo-large.png" "/Library/Themes/$themeName.theme/IconBundles/toBeRenamed.com.rileytestut.Delta.Lite-large.png"
 	rm -f "$deltaLiteSave"
 fi
 echo "All done!"
