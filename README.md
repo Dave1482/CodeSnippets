@@ -1,6 +1,6 @@
 # CodeSnippets
 ## A collection mostly for iOS jailbreak developers
-### Dynamic Theme Icon Scripts - [Link](https://github.com/Dave1482/CodeSnippets/tree/master/Dynamic%20Theme%20Icon%20Scripts/DEBIAN)
+### Dynamic Theme Icon Scripts - [Link](https://github.com/Dave1482/CodeSnippets/tree/master/Dynamic%20Theme%20Icon%20Scripts/DEBIAN), [Changelog](https://github.com/Dave1482/CodeSnippets/blob/master/Dynamic%20Theme%20Icon%20Scripts/Changelog.md)
 - "postinst" and "prerm" files to be customized by theme developers
 - Just put both files in the same folder your "control" file is and change values to use your theme's folders
 
