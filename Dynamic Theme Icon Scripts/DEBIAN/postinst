@@ -1,5 +1,7 @@
 #!/bin/bash
 
+themeName="YourTheme"
+
 altStore="/var/containers/Bundle/Application/*/AltStore.app/Info.plist"
 unc0verPath="$(dirname $(find /var/containers/Bundle/Application/ -mindepth 3 -maxdepth 3 -iname unc0ver) 2>/dev/null)/Info.plist"
 deltaFullPath="$(dirname $(find /var/containers/Bundle/Application/ -mindepth 3 -maxdepth 3 -iname DSDeltaCore.bundle) 2>/dev/null)/Info.plist"
@@ -8,33 +10,33 @@ deltaLitePath="$(dirname $(dirname $(find /var/containers/Bundle/Application/ -m
 if test -f $altStore; then
     altInfo=$(defaults read $altStore CFBundleIdentifier)
     echo "Renaming AltStore Icon..."
-	mv -f "/Library/Themes/YourTheme.theme/IconBundles/toBeRenamed.com.rileytestut.AltStore-large.png" "/Library/Themes/YourTheme.theme/IconBundles/$altInfo-large.png"
-    echo $altInfo > "/Library/Themes/YourTheme.theme/Saved Locations/AltStore.txt"
+	mv -f "/Library/Themes/$themeName.theme/IconBundles/toBeRenamed.com.rileytestut.AltStore-large.png" "/Library/Themes/$themeName.theme/IconBundles/$altInfo-large.png"
+    echo $altInfo > "/Library/Themes/$themeName.theme/Saved Locations/AltStore.txt"
 fi
 
 if test -f $unc0verPath; then
     unc0verInfo=$(defaults read $unc0verPath CFBundleIdentifier)
     echo "Renaming Unc0ver Icon..."
-    mv -f "/Library/Themes/YourTheme.theme/IconBundles/toBeRenamed.science.xnu.undecimus-large.png" "/Library/Themes/YourTheme.theme/IconBundles/$unc0verInfo-large.png"
-    echo $unc0verInfo > "/Library/Themes/YourTheme.theme/Saved Locations/Unc0ver.txt"
+    mv -f "/Library/Themes/$themeName.theme/IconBundles/toBeRenamed.science.xnu.undecimus-large.png" "/Library/Themes/$themeName.theme/IconBundles/$unc0verInfo-large.png"
+    echo $unc0verInfo > "/Library/Themes/$themeName.theme/Saved Locations/Unc0ver.txt"
 fi
 
 if test -f $deltaFullPath; then
     deltaFullInfo=$(defaults read $deltaFullPath CFBundleIdentifier)
     echo "Renaming Delta Icon..."
-	mv -f "/Library/Themes/YourTheme.theme/IconBundles/toBeRenamed.com.rileytestut.Delta-large.png" "/Library/Themes/YourTheme.theme/IconBundles/$deltaFullInfo-large.png"
-    echo $deltaFullInfo > "/Library/Themes/YourTheme.theme/Saved Locations/Delta.txt"
+	mv -f "/Library/Themes/$themeName.theme/IconBundles/toBeRenamed.com.rileytestut.Delta-large.png" "/Library/Themes/$themeName.theme/IconBundles/$deltaFullInfo-large.png"
+    echo $deltaFullInfo > "/Library/Themes/$themeName.theme/Saved Locations/Delta.txt"
 fi
 
 if test -f $deltaLitePath; then
     deltaLiteInfo=$(defaults read $deltaLitePath CFBundleIdentifier)
     echo "Renaming Delta Lite Icon..."
-    mv -f "/Library/Themes/YourTheme.theme/IconBundles/toBeRenamed.com.rileytestut.Delta.Lite-large.png" "/Library/Themes/YourTheme.theme/IconBundles/$deltaLiteInfo-large.png"
-    echo $deltaLiteInfo > "/Library/Themes/YourTheme.theme/Saved Locations/DeltaLite.txt"
+    mv -f "/Library/Themes/$themeName.theme/IconBundles/toBeRenamed.com.rileytestut.Delta.Lite-large.png" "/Library/Themes/$themeName.theme/IconBundles/$deltaLiteInfo-large.png"
+    echo $deltaLiteInfo > "/Library/Themes/$themeName.theme/Saved Locations/DeltaLite.txt"
 fi
 
 echo "All done!"
-echo "Thank you for using YourTheme!"
+echo "Thank you for using $themeName!"
 echo "Script made by Dave1482"
 
         declare -a cydia
