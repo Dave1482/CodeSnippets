@@ -1,6 +1,14 @@
 # CodeSnippets
-A collection of iOS code that I like
+## A collection mostly for iOS jailbreak developers
+### Dynamic Theme Icon Scripts
+- "postinst" and "prerm" files to be customized by theme developers
+- Just put both files in the same folder your "control" file is and change values to use your theme's folders
 
+### DeviceAndAppInfo
+- Update the iOS Device List (devices.plist) without recompiling
+- Display App Version
+- Display iOS Device model if it is not in "devices.plist"
+- Display iOS Version
 
 # Credits
 ### DeviceAndAppInfo
