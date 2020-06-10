@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 
+# Replace YourTheme with the theme folder name without the .theme extension (do not use the full path)
 themeName="YourTheme"
 
 echo "Cleaning Up..."
@@ -10,6 +10,7 @@ unc0verSave="/Library/Themes/$themeName.theme/Saved Locations/Unc0ver.txt"
 deltaFullSave="/Library/Themes/$themeName.theme/Saved Locations/Delta.txt"
 deltaLiteSave="/Library/Themes/$themeName.theme/Saved Locations/DeltaLite.txt"
 
+# Move files back to original names so the package manager removes the package correctly
 if test -f "$altStoreSave"; then
     altInfo=$(cat "$altStoreSave")
 	mv -f "/Library/Themes/$themeName.theme/IconBundles/$altInfo-large.png" "/Library/Themes/$themeName.theme/IconBundles/toBeRenamed.com.rileytestut.AltStore-large.png"
@@ -29,6 +30,11 @@ if test -f "$unc0verSave"; then
     deltaLiteInfo=$(cat "$deltaLiteSave")
 	mv -f "/Library/Themes/$themeName.theme/IconBundles/$deltaLiteInfo-large.png" "/Library/Themes/$themeName.theme/IconBundles/toBeRenamed.com.rileytestut.Delta.Lite-large.png"
 	rm -f "$deltaLiteSave"
+fi
+
+# Remove folder created by script
+if [[ -d "/Library/Themes/$themeName.theme/Saved Locations/" ]]; then
+    rm -rf "/Library/Themes/$themeName.theme/Saved Locations/" 2>/dev/null
 fi
 echo "All done!"
 echo "Cleanup Script by Dave1482"
