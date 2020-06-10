@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# 
 themeName="YourTheme"
 
 echo "Cleaning Up..."
