@@ -1,12 +1,20 @@
 #!/bin/bash
 
+# Replace YourTheme with the theme folder name without the .theme extension (do not use the full path)
 themeName="YourTheme"
 
+# Checks for app bundle IDs and stores them
 altStore="/var/containers/Bundle/Application/*/AltStore.app/Info.plist"
 unc0verPath="$(dirname $(find /var/containers/Bundle/Application/ -mindepth 3 -maxdepth 3 -iname unc0ver) 2>/dev/null)/Info.plist"
 deltaFullPath="$(dirname $(find /var/containers/Bundle/Application/ -mindepth 3 -maxdepth 3 -iname DSDeltaCore.bundle) 2>/dev/null)/Info.plist"
 deltaLitePath="$(dirname $(dirname $(find /var/containers/Bundle/Application/ -mindepth 4 -maxdepth 4 -iname DeltaCore.framework) 2>/dev/null) 2>/dev/null)/Info.plist"
 
+# Make sure "Saved Locations" directory exists
+if [[ ! -d "/Library/Themes/$themeName.theme/Saved Locations/" ]]; then
+    mkdir "/Library/Themes/$themeName.theme/Saved Locations/" 2>/dev/null
+fi
+
+# Rename icons and store renamed icon names
 if test -f $altStore; then
     altInfo=$(defaults read $altStore CFBundleIdentifier)
     echo "Renaming AltStore Icon..."
@@ -35,6 +43,7 @@ if test -f $deltaLitePath; then
     echo $deltaLiteInfo > "/Library/Themes/$themeName.theme/Saved Locations/DeltaLite.txt"
 fi
 
+# Finishing up...
 echo "All done!"
 echo "Thank you for using $themeName!"
 echo "Script made by Dave1482"
